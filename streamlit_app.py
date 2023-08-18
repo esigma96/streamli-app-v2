@@ -11,5 +11,5 @@ st.title('🦜🔗 Ask the Doc App')
 
 # File upload
 uploaded_file = st.file_uploader('Upload an article', type='txt')
-submitted = st.form_submit_button('Submit', disabled=not(uploaded_file))
+submitted = st.form_submit_button('Submit')
 
