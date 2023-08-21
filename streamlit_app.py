@@ -3,7 +3,7 @@ import streamlit as st
 import re
 import pandas as pd
 #import matplotlib.pyplot as plt
-import seaborn as sns
+#import seaborn as sns
 
 # Page title
 st.set_page_config(page_title='🦜🔗 WhatsApp Chat Analysis')
