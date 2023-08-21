@@ -4,7 +4,7 @@ import re
 import pandas as pd
 #pip install matplotlib
 #import matplotlib.pyplot as plt
-pip intall seaborn
+pip install seaborn
 import seaborn as sns
 
 # Page title
