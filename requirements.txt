@@ -4,4 +4,4 @@ openai
 chromadb
 tiktoken
 seaborn
-matplotlib
+matplotlib.pyplot 
