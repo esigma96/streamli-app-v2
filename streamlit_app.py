@@ -2,7 +2,8 @@ import streamlit as st
 ####Importing Necessary Libraries
 import re
 import pandas as pd
-import matplotlib.pyplot as plt
+#pip install matplotlib
+#import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Page title
