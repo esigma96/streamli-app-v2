@@ -12,8 +12,8 @@ st.title('🦜🔗 WhatsApp Chat Analysis')
 # File upload
 uploaded_file = st.file_uploader('Upload your chat file', type='txt')
 with st.form('myform', clear_on_submit=True):
-    submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file), on_click= )
-    st.write(uploaded_file)
+    submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file), on_click= st.write(uploaded_file))
+    
 #file = open(r'uploaded_file',mode='r',encoding="utf8")
 #data = file.read()
 #file.close()
