@@ -18,7 +18,7 @@ with st.form('myform', clear_on_submit=True):
 ##Parsing whataspp messages to dataframe
 
 with open(uploaded_file) as f:
-    data = f.read()
+    data = f.read(uploaded_file)
 
 whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
 
