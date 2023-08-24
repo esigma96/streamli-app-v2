@@ -35,7 +35,7 @@ if uploaded_file is not None:
     df['date'] = pd.to_datetime(df['date'],format='%d/%m/%Y')
     df['time'] = pd.to_timedelta(df['time']+':00')
     df['datetime']= df["date"] + df['time']
-    df = df.head(10)
+    #df = df.head(10)
     #st.dataframe(df['message'])
 
 
