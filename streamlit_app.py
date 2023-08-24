@@ -25,9 +25,9 @@ if uploaded_file is not None:
 
     # To read file as string:
     string_data = stringio.read()
-    st.write(string_data)
+    
     whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
-    matches = re.findall(whatsapp_regex, uploaded_file, re.MULTILINE | re.DOTALL)
+    matches = re.findall(whatsapp_regex, string_data, re.MULTILINE | re.DOTALL)
     df = pd.DataFrame(matches, columns=["date", "time", "name", "message"])
     df['date'] = pd.to_datetime(df['date'])
     df['time'] = pd.to_timedelta(df['time']+':00')
