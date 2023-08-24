@@ -157,9 +157,11 @@ if uploaded_file is not None:
             
             with figure3:
                 st.markdown("##### :red[Most Active Member of the group]")
+                emoji_1 = re.compile('[\\u203C-\\u3299\\U0001F000-\\U0001F644]')
+                df['emoji_list']= pd.DataFrame(filter(emoji_1.match, df['message']))
                 #EDA for general understanding of the distribution of the dataset.
-                df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
-                df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
-                df_most_busy_day['day_of_week'] = df_most_busy_day.index
-                st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
+                names_with_most_emoji = df[['name','emoji_list']].dropna().groupby(by = 'name').count().sort_values(by = 'emoji_list', ascending = False).head(5)
+                names_with_most_emoji
+                names_with_most_emoji['name'] = names_with_most_emoji.index
+                st.bar_chart(data = names_with_most_emoji, x = 'name', y = 'emoji_list')
             
