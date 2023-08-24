@@ -5,6 +5,7 @@ import pandas as pd
 import io
 from io import StringIO
 import seaborn as sns
+import emoji
 
 # Page title
 st.set_page_config(page_title='🦜🔗 WhatsApp Chat Analysis', layout="wide")
