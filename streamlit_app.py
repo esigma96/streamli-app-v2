@@ -9,7 +9,7 @@ import seaborn as sns
 # Page title
 st.set_page_config(page_title='🦜🔗 WhatsApp Chat Analysis', layout="wide")
 st.title('🦜🔗 WhatsApp Chat Analysis')
-
+st.write("#")
 # creating a single-element container
 placeholder = st.empty()
 
@@ -18,7 +18,7 @@ with placeholder.container():
     uploaded_file = st.file_uploader('Upload your chat file', type='txt')
 #with st.form('myform', clear_on_submit=True):
 #    submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file))
-
+st.write("#")
 ##Parsing whataspp messages to dataframe
 if uploaded_file is not None:
     # To read file as bytes:
