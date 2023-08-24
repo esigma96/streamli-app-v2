@@ -65,7 +65,7 @@ if uploaded_file is not None:
         st.write(ax)
         
     with fig_col2:
-        st.markdown("#### Which hour of the day were most messages exchanged?")
+        st.markdown("#### Which hour of the day were most messages sent?")
         hour_pattern = '(\d+):\d+\s+-\s+\w+\s?\w+?\s?\w+\s?\w+:\s'
         hours = re.findall(hour_pattern,string_data)
         time = pd.DataFrame({'hours':hours})
