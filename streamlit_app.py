@@ -29,7 +29,7 @@ if uploaded_file is not None:
     whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
     matches = re.findall(whatsapp_regex, string_data, re.MULTILINE | re.DOTALL)
     df = pd.DataFrame(matches, columns=["date", "time", "name", "message"])
-    df['date'] = pd.to_datetime(df['date'])
+    df['date'] = pd.to_datetime(df['date'],format='%d/%m/%Y')
     df['time'] = pd.to_timedelta(df['time']+':00')
     df['datetime']= df["date"] + df['time']
     df = df.head(10)
