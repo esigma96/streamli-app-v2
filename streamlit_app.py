@@ -44,23 +44,23 @@ if uploaded_file is not None:
         Chat_Members, Message_Count, Peak_Time, Media_Shared_Count = st.columns(4)
         # fill in those three columns with respective metrics
         Chat_Members.metric(
-            label = "Chat_Members"
-            value = int(len(df['message']))
+            label = "Chat_Members",
+            value = int(len(df['message'])),
             delta = len(df['message']) - 10
         )
         Message_Count.metric(
-            label = "Message_Count"
-            value = int(len(df['message']))
+            label = "Message_Count",
+            value = int(len(df['message'])),
             delta = len(df['message']) - 10
         )
         Peak_Time.metric(
-            label = "Peak_Time"
-            value = int(len(df['message']))
+            label = "Peak_Time",
+            value = int(len(df['message'])),
             delta = len(df['message']) - 10
         )
         Media_Shared_Count.metric(
-            label = "Media_Shared_Count"
-            value = int(len(df['message']))
+            label = "Media_Shared_Count",
+            value = int(len(df['message'])),
             delta = len(df['message']) - 10
         )
     with st.container():
