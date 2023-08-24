@@ -106,6 +106,35 @@ if uploaded_file is not None:
         st.write("#")
         with st.container():
             figure1, figure2, figure3 = st.columns(3)
+            df['day_of_week'] = df['date'].dt.dayofweek
+
+            # map the day of the week number to its name
+            df['day_of_week'] = df['day_of_week'].map({
+                0: 'Monday',
+                1: 'Tuesday',
+                2: 'Wednesday',
+                3: 'Thursday',
+                4: 'Friday',
+                5: 'Saturday',
+                6: 'Sunday'
+            })
+            df['month_of_date'] = df['date'].dt.month
+            df['month_of_date'] = df['month_of_date'].map({
+                1: 'Jan',
+                2: 'Feb',
+                3: 'Mar',
+                4: 'Apr',
+                5: 'May',
+                6: 'Jun',
+                7: 'Jul',
+                8: 'Aug',
+                9: 'Sep',
+                10: 'Oct',
+                11: 'Nov',
+                12: 'Dec'
+            })
+            df['year'] = df['date'].dt.year
+            df['Period'] = df['month_of_date'].map(str) + "-" + df['year'].map(str)
             with figure1:
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
