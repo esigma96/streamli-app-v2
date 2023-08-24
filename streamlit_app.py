@@ -13,7 +13,7 @@ st.write("#")
 # creating a single-element container
 placeholder = st.empty()
 
-with ontainer():
+with container():
 # File upload
     uploaded_file = st.file_uploader('Upload your chat file', type='txt')
 #with st.form('myform', clear_on_submit=True):
