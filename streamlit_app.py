@@ -33,7 +33,7 @@ if uploaded_file is not None:
     df['time'] = pd.to_timedelta(df['time']+':00')
     df['datetime']= df["date"] + df['time']
     df = df.head(10)
-    st.dataframe(df)
+    print(df)
 
 
 
