@@ -145,11 +145,14 @@ if uploaded_file is not None:
             
             with figure2:
                 st.markdown("##### :red[Who sent most media files]")
+                list_irrelevant_txt_v1 = ["<Media omitted>\n"]
+                df_v4 = df[df['message'].isin(list_irrelevant_txt_v1)]
+                df_v4['count'] = 1 * len(df_v4)
+                df_v4 = df_v4[['name','count']].groupby(['name']).sum()
+                df_v4 = df_v4.sort_values(by = 'count', ascending=False).head(5)
                 #EDA for general understanding of the distribution of the dataset.
-                df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
-                df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
-                df_most_busy_day['day_of_week'] = df_most_busy_day.index
-                st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
+                df_v4['name'] = df_v4.index
+                st.bar_chart(data = df_v4, x = 'name', y = 'count')
             
             with figure3:
                 st.markdown("##### :red[Most Active Member of the group]")
