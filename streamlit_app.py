@@ -15,12 +15,19 @@ uploaded_file = st.file_uploader('Upload your chat file', type='txt')
 with st.form('myform', clear_on_submit=True):
     submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file))
 
-def read_file (url):
-  file = open(url,mode='r',encoding="utf8")
-  data = file.read()
-  file.close()
-  data
+##Parsing whataspp messages to dataframe
 
-data = read_file(uploaded_file)
+with open(uploaded_file) as f:
+    data = f.read()
 
-st.write(data)
+whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
+
+matches = re.findall(whatsapp_regex, uploaded_file, re.MULTILINE | re.DOTALL)
+df = pd.DataFrame(matches, columns=["date", "time", "name", "message"])
+df['date'] = pd.to_datetime(df['date'])
+df['time'] = pd.to_timedelta(df['time']+':00')
+df['datetime']= df["date"] + df['time']
+
+
+
+st.write(df.head(10))
