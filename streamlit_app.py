@@ -64,6 +64,7 @@ if uploaded_file is not None:
             value = int(len(df['message'])),
             delta = len(df['message']) - 10
         )
+    st.write("#")
     with st.container():
         # create two columns for charts
         fig_col1, fig_col2 = st.columns(2)
