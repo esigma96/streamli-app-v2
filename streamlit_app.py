@@ -65,7 +65,7 @@ if uploaded_file is not None:
         
     with fig_col2:
         hour_pattern = '(\d+):\d+\s+-\s+\w+\s?\w+?\s?\w+\s?\w+:\s'
-        hours = re.findall(hour_pattern,data)
+        hours = re.findall(hour_pattern,string_data)
         time = pd.DataFrame({'hours':hours})
         time['count'] = [1]* len(time)
         time = time.sort_values(by = 'hours', ascending = True)
