@@ -56,7 +56,7 @@ if uploaded_file is not None:
     ax.set_title('Most Active Member of the group', size = 20)
     ax.set(ylabel='No. of Messages')
     st.bar_chart(data = message_cnt.head(5), x = 'Names', y = 'Mssg_Count', width = 1000, height = 800)
-    st.pyplot(ax)
+    st.write(ax)
 
 
 
