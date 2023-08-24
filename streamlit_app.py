@@ -9,6 +9,7 @@ import seaborn as sns
 st.set_page_config(page_title='🦜🔗 WhatsApp Chat Analysis')
 st.title('🦜🔗 WhatsApp Chat Analysis')
 
+st.sidebar.success("Select a demo above.")
 # File upload
 uploaded_file = st.file_uploader('Upload your chat file', type='txt')
 with st.form('myform', clear_on_submit=True):
