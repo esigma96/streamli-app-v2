@@ -16,17 +16,23 @@ with st.form('myform', clear_on_submit=True):
     submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file))
 
 ##Parsing whataspp messages to dataframe
+if uploaded_file is not None:
+    # To read file as bytes:
+    bytes_data = uploaded_file.getvalue()
+    st.write(bytes_data)
 
-with open(uploaded_file) as f:
-    data = f.read(uploaded_file)
+    # To convert to a string based IO:
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    st.write(stringio)
 
-whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
-
-matches = re.findall(whatsapp_regex, uploaded_file, re.MULTILINE | re.DOTALL)
-df = pd.DataFrame(matches, columns=["date", "time", "name", "message"])
-df['date'] = pd.to_datetime(df['date'])
-df['time'] = pd.to_timedelta(df['time']+':00')
-df['datetime']= df["date"] + df['time']
+    # To read file as string:
+    string_data = stringio.read()
+    whatsapp_regex = r"(\d{2}/\d{2}/\d{4}), (\d{2}:\d{2}) - ([^:]*): (.*?)(?=\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - [^:]*|\Z)"
+    matches = re.findall(whatsapp_regex, uploaded_file, re.MULTILINE | re.DOTALL)
+    df = pd.DataFrame(matches, columns=["date", "time", "name", "message"])
+    df['date'] = pd.to_datetime(df['date'])
+    df['time'] = pd.to_timedelta(df['time']+':00')
+    df['datetime']= df["date"] + df['time']
 
 
 
