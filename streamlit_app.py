@@ -41,7 +41,7 @@ if uploaded_file is not None:
         # create two columns for charts
         fig_col1, fig_col2 = st.columns(2)
         with fig_col1:
-            st.markdown("##### Most Active Member of the group")
+            st.markdown("##### ** :red[Most Active Member of the group]**")
             ##Finding pattern of messager
             pattern = re.compile('\d+:\d+\s+-\s+([a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?):\s+')
             messengers = re.findall(pattern,string_data)
