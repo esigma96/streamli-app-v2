@@ -55,7 +55,7 @@ if uploaded_file is not None:
     #ax =sns.barplot(x = 'Names', y = 'Mssg_Count' ,data = message_cnt.head(5), estimator = sum, palette=("crest"))
     #ax.set_title('Most Active Member of the group', size = 20)
     #ax.set(ylabel='No. of Messages')
-    st.bar_chart(data = message_cnt.head(5), x = 'Names', y = 'Mssg_Count', widht = 10, height = 8)
+    st.bar_chart(data = message_cnt.head(5), x = 'Names', y = 'Mssg_Count', width = 10, height = 8)
 
 
 
