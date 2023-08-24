@@ -1,5 +1,6 @@
 streamlit
 seaborn
 regex==2023.6.3
+emoji
 
 
