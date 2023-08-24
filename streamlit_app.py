@@ -136,6 +136,7 @@ if uploaded_file is not None:
             df['year'] = df['date'].dt.year
             df['Period'] = df['month_of_date'].map(str) + "-" + df['year'].map(str)
             with figure1:
+                st.markdown("##### :red[Most Busy Day]")
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
@@ -143,6 +144,7 @@ if uploaded_file is not None:
                 st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
             
             with figure2:
+                st.markdown("##### :red[Who sent most media files]")
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
@@ -150,6 +152,7 @@ if uploaded_file is not None:
                 st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
             
             with figure3:
+                st.markdown("##### :red[Most Active Member of the group]")
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
