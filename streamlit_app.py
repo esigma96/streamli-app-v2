@@ -140,19 +140,19 @@ if uploaded_file is not None:
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
                 df_most_busy_day['day_of_week'] = df_most_busy_day.index
-                st.bar_chart(data = df, x = 'day_of_week', y = 'month_of_date')
+                st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
             
             with figure2:
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
                 df_most_busy_day['day_of_week'] = df_most_busy_day.index
-                st.bar_chart(data = df, x = 'day_of_week', y = 'month_of_date')
+                st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
             
             with figure3:
                 #EDA for general understanding of the distribution of the dataset.
                 df_most_busy_day = df[['day_of_week', 'month_of_date']].groupby('day_of_week').count()
                 df_most_busy_day = df_most_busy_day.sort_values(by = 'month_of_date', ascending = False)
                 df_most_busy_day['day_of_week'] = df_most_busy_day.index
-                st.bar_chart(data = df, x = 'day_of_week', y = 'month_of_date')
+                st.bar_chart(data = df_most_busy_day, x = 'day_of_week', y = 'month_of_date')
             
