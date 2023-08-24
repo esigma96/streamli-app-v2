@@ -34,6 +34,27 @@ if uploaded_file is not None:
     df['datetime']= df["date"] + df['time']
     df = df.head(10)
     st.dataframe(df['message'])
+    
+    ##Finding pattern of messager
+    pattern = re.compile('\d+:\d+\s+-\s+([a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?):\s+')
+    messengers = re.findall(pattern,string_data)
+    count_messages={}
+    for each in messengers:
+        if each in count_messages.keys():
+            count_messages[each]+=1
+        else:
+            count_messages[each]=1
+    message_cnt = pd.DataFrame.from_dict([count_messages])
+
+    message_cnt = message_cnt.T.sort_values(by = 0, ascending=False)
+    message_cnt = message_cnt.rename(columns={0: 'Mssg_Count'})
+    
+    #EDA for general understanding of the distribution of the dataset.
+    message_cnt['Names'] = message_cnt.index
+    sns.set(rc={'figure.figsize':(10,6.27)})
+    ax =sns.barplot(x = 'Names', y = 'Mssg_Count' ,data = message_cnt.head(5), estimator = sum, palette=("crest"))
+    ax.set_title('Most Active Member of the group', size = 20)
+    ax.set(ylabel='No. of Messages')
 
 
 
