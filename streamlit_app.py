@@ -40,7 +40,7 @@ if uploaded_file is not None:
     #st.dataframe(df['message'])
 
 
-    with placeholder.container():
+    with st.container():
         #create 3 columns
         Chat_Members, Message_Count, Peak_Time, Media_Shared_Count = st.columns(4)
         # fill in those three columns with respective metrics
