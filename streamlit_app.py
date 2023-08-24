@@ -33,7 +33,7 @@ if uploaded_file is not None:
     df['time'] = pd.to_timedelta(df['time']+':00')
     df['datetime']= df["date"] + df['time']
     df = df.head(10)
-    st.dataframe(df['message'])
+    #st.dataframe(df['message'])
     
     ##Finding pattern of messager
     pattern = re.compile('\d+:\d+\s+-\s+([a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?[a-zA-Z0-9]+\s?):\s+')
@@ -55,7 +55,7 @@ if uploaded_file is not None:
     #ax =sns.barplot(x = 'Names', y = 'Mssg_Count' ,data = message_cnt.head(5), estimator = sum, palette=("crest"))
     #ax.set_title('Most Active Member of the group', size = 20)
     #ax.set(ylabel='No. of Messages')
-    st.bar_chart(data = message_cnt.head(5), x = 'Names', y = 'Mssg_Count')
+    st.bar_chart(data = message_cnt.head(5), x = 'Names', y = 'Mssg_Count', weight = 10, height = 8)
 
 
 
