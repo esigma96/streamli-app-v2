@@ -9,4 +9,4 @@ import re
 st.set_page_config(page_title='⇲🔗 WhatsApp Chat Analysis')
 st.title('⇲🔗 WhatsApp Chat Analysis')
 
-st.write()
+st.write(stringio)
