@@ -15,10 +15,12 @@ with st.form('myform', clear_on_submit=True):
     submitted = st.form_submit_button('Run Analysis', disabled=not(uploaded_file))
 
 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-st.write (def read_file (url):
+def read_file (url):
   file = open(url,mode='r',encoding="utf8")
   data = file.read()
   file.close()
   data
 
-read_file(url))
+data = read_file(stringio)
+
+st.write(data)
