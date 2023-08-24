@@ -156,12 +156,11 @@ if uploaded_file is not None:
                 st.bar_chart(data = df_v4, x = 'name', y = 'count')
             
             with figure3:
-                st.markdown("##### :red[Most Active Member of the group]")
+                st.markdown("##### :red[Who used emojis often]")
                 emoji_1 = re.compile('[\\u203C-\\u3299\\U0001F000-\\U0001F644]')
                 df['emoji_list']= pd.DataFrame(filter(emoji_1.match, df['message']))
                 #EDA for general understanding of the distribution of the dataset.
                 names_with_most_emoji = df[['name','emoji_list']].dropna().groupby(by = 'name').count().sort_values(by = 'emoji_list', ascending = False).head(5)
-                names_with_most_emoji
                 names_with_most_emoji['name'] = names_with_most_emoji.index
                 st.bar_chart(data = names_with_most_emoji, x = 'name', y = 'emoji_list')
             
